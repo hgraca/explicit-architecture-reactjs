@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Explicit Architecture in ReactJs
 
-## Available Scripts
+[![Author][Author]](https://www.herbertograca.com)
+[![Software License][License]](LICENSE)
 
-In the project directory, you can run:
+This repository is a demo of [Explicit Architecture][1], using ReactJs and a [GraphQL API][18] on top of the 
+the [Symfony Demo Application][2].
 
-### `yarn start`
+Since this is a frontend project, the code is structured in a slightly different way than a backend project, 
+nevertheless, the guiding principles are the same.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For a example of the code structure in a backend project, you can check my repository [Explicit Architecture in PHP][18].
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+There may be code in this project that is not used and therefore it would be removed in a real project, nevertheless 
+it was included here as examples.
 
-### `yarn test`
+### Explicit Architecture
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I explained [Explicit Architecture][1] in one of my blog posts, as a result of my understanding of several architectural
+ ideas such as (but not limited to) [EBI Architecture][11], [DDD][12], [Ports & Adapters Architecture][13], 
+ [Onion Architecture][14] and [Clean Architecture][15].
+ 
+Please, not that the term "component" in the following slides are not the same as a "react component". They refer to 
+a more generic concept of a domain wise module, which in the context of this project is a Page.
+ 
+[![Explicit Architecture](https://docs.google.com/drawings/d/e/2PACX-1vQ5ps72uaZcEJzwnJbPhzUfEeBbN6CJ04j7hl2i3K2HHatNcsoyG2tgX2vnrN5xxDKLp5Jm5bzzmZdv/pub?w=960&amp;h=657)][2]
 
-### `yarn build`
+#### Package by component
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[![Package by component](https://docs.google.com/drawings/d/e/2PACX-1vQjEj4dKKUaQEUcNDq2UO58oIUu6pehqrE99q4gSRk0DY9KPIuhgG9Yg3qJGgW4ybrL5Ql8_Xo5z3yq/pub?w=960&h=720)][17]
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Dependencies directions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[![Dependencies](https://docs.google.com/drawings/d/e/2PACX-1vQyv5xAx5hFJPhiK19AGl_2t256M0yKcDSliH8etojltE3tBlEnCndwfsUr1UsXvv5PKGVtrBHkQX3h/pub?w=913&amp;h=129)][16]
 
-### `yarn eject`
+#### Folder structure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **bin** (_application binaries, however the dependencies binaries should go in vendor/bin_)
+- **build** (_The compiled/built application_)
+- **config** (_all the config needed to run the application_)
+- **docs** (_application documentation_)
+- **lib** (_libraries used by the application, which are independent from, but owned by, this project and not yet distributable_)
+    - **reactjs-extension**  (_code to be used as if it was part of the language itself_)
+        - _src_
+- **public** (_the entry point to the application_)
+- **src**
+    - **[Core][10]** (_the application core_)
+        - **[Page][5]** (_the application pages with their components that are not reusable in other pages_)
+        - **[SharedKernel][6]** (_components that are used in several pages_)
+    - **[Infrastructure][9]** (_the port & adapters for the infrastructure tools, designed as wrappers because of language limitations_)
+- **translations**
+- **var** (_volatile artifacts like logs, cache, temporary test databases, generated code, ..._)
+- **node_modules** (_distributable libraries_)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[1]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
+[2]: https://docs.google.com/drawings/d/1E_hx5B4czRVFVhGJbrbPDlb_JFxJC8fYB86OMzZuAhg/edit?usp=sharing
+[5]: http://ddd.fed.wiki.org/view/welcome-visitors/view/domain-driven-design/view/bounded-context
+[6]: http://ddd.fed.wiki.org/view/welcome-visitors/view/domain-driven-design/view/shared-kernel
+[7]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#primary-or-driving-adapters
+[8]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#ports
+[9]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#secondary-or-driving-adapters
+[10]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#application-core-organisation
+[11]: https://herbertograca.com/2017/08/24/ebi-architecture/
+[12]: https://herbertograca.com/2017/09/07/domain-driven-design/
+[13]: https://herbertograca.com/2017/09/14/ports-adapters-architecture/
+[14]: https://herbertograca.com/2017/09/21/onion-architecture/
+[15]: https://herbertograca.com/2017/09/28/clean-architecture-standing-on-the-shoulders-of-giants/
+[16]: https://docs.google.com/drawings/d/1DGiP9qyBpRHPDPKRJoXdElw1DXwmJoR-88Qvtf6hBNA/edit?usp=sharing
+[17]: https://docs.google.com/drawings/d/1QurViCcaZ4Eh1CgBvel9aK5RLBkw2TaOAnO-Lhu4pfw/edit?usp=sharing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[18]: https://github.com/hgraca/explicit-architecture-php
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Author]: http://img.shields.io/badge/author-@hgraca-blue.svg?style=flat-square
+[License]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
