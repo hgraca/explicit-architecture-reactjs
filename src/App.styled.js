@@ -1,5 +1,54 @@
 import styled from '@emotion/styled';
 
-export const Header = styled.div``;
 export const Sidebar = styled.div``;
-export const Content = styled.div``;
+export const Content = styled.div`
+  box-sizing:border-box;
+  color:rgb(44, 62, 80);
+  display:block;
+  flex-basis:0%;
+  flex-grow:1;
+  flex-shrink:1;
+  font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:15px;
+  height:1322px;
+  line-height:21.4286px;
+  margin-left:9.29688px;
+  margin-right:9.29688px;
+  min-height:600px;
+  padding-left:15px;
+  padding-right:15px;
+  text-size-adjust:100%;
+  width:911.391px;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`;
+export const ContentRow = styled.div`
+  box-sizing:border-box;
+  color:rgb(44, 62, 80);
+  display:block;
+  font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:15px;
+  height:1322px;
+  line-height:21.4286px;
+  margin-left:-15px;
+  margin-right:-15px;
+  text-size-adjust:100%;
+  width:911.391px;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`;
+export const ContentRowMain = styled.div`
+  box-sizing:border-box;
+  color:rgb(44, 62, 80);
+  display:block;
+  float:left;
+  font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:15px;
+  height:1322px;
+  line-height:21.4286px;
+  min-height:1px;
+  padding-left:15px;
+  padding-right:15px;
+  position:relative;
+  text-size-adjust:100%;
+  width:683.531px;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+`;

@@ -11,10 +11,15 @@ const App = () => (
     <Header></Header>
     <Sidebar></Sidebar>
     <Content>
-      <Switch>
-        <Route exact path="/" component={ GistListPage }/>
-        <Route path="/gist/:name" component={ GistPage }/>
-      </Switch>
+      <ContentRow>
+        <ContentRowMain>
+          <Switch>
+            <Route exact path="/" component={ GistListPage }/>
+            <Route path="/gist/:name" component={ GistPage }/>
+          </Switch>
+        </ContentRowMain>
+        <Sidebar></Sidebar>
+      </ContentRow>
     </Content>
   </ApolloProvider>
 );
