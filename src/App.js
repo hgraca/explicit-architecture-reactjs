@@ -4,12 +4,12 @@ import GitHubGqlClient from "./Infrastructure/GraphQLClient/GitHubGqlClient.js";
 import { Route, Switch } from 'react-router-dom'
 import GistListPage from "./Core/Actor/Visitor/GistListPage";
 import GistPage from "./Core/Actor/Visitor/GistPage";
-import { Content, Header, Sidebar } from "./App.styled";
+import Header from "./Core/SharedKernel/Organism/Header";
+import { Content, ContentRow, ContentRowMain, Sidebar } from "./App.styled";
 
 const App = () => (
   <ApolloProvider client={ GitHubGqlClient }>
-    <Header></Header>
-    <Sidebar></Sidebar>
+    <Header />
     <Content>
       <ContentRow>
         <ContentRowMain>
