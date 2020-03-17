@@ -1,0 +1,20 @@
+query Gist($userName: String!, $gistName: String!) {
+  user(login: $userName) {
+    gist(name: $gistName){
+      createdAt
+      description
+      id
+      isFork
+      isPublic
+      name
+      owner {
+        login
+      }
+      pushedAt
+      resourcePath
+      updatedAt
+      url
+      viewerHasStarred
+    }
+  }
+}
