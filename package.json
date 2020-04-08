@@ -153,6 +153,14 @@
         {
           "labelFormat": "[local]"
         }
+      ],
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "~": "./src"
+          }
+        }
       ]
     ]
   },
