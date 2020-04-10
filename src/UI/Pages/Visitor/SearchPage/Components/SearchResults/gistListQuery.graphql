@@ -1,0 +1,19 @@
+query GistList($userName: String!) {
+  user(login: $userName) {
+    company
+    gists (first: 5) {
+      totalCount
+      edges {
+        node {
+          id
+          description
+          createdAt
+          name
+          owner {
+            login
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ div#root {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,3 +17,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/*p {*/
+/*  box-sizing: border-box;*/
+/*  color: rgb(44, 62, 80);*/
+/*  display: block;*/
+/*  font-size: 19px;*/
+/*  height: auto;*/
+/*  line-height: 32.8571px;*/
+/*  margin-block-end: 15px;*/
+/*  margin-block-start: 0px;*/
+/*  margin-bottom: 15px;*/
+/*  margin-inline-end: 0px;*/
+/*  margin-inline-start: 0px;*/
+/*  margin-left: 0px;*/
+/*  margin-right: 0px;*/
+/*  margin-top: 0px;*/
+/*  text-size-adjust: 100%;*/
+/*  width: 291.969px;*/
+/*  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+/*}*/
+
+/*div {*/
+/*  box-sizing: border-box;*/
+/*  font-size: 19px;*/
+/*  height: auto;*/
+/*  line-height: 22.8571px;*/
+/*  margin-right: 24px;*/
+/*  text-size-adjust: 100%;*/
+/*  width: auto;*/
+/*  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);*/
+/*}*/
