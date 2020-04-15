@@ -140,6 +140,17 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "emotion",
+        {
+          "labelFormat": "[local]"
+        }
+      ]
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-emotion": "^10.0.33"
   }
 }
