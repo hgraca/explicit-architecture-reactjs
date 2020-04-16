@@ -15,10 +15,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
     "apollo-boost": "^0.4.7",
-    "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.6",
@@ -28,11 +25,9 @@
     "css-loader": "3.4.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.2.0",
     "eslint-loader": "3.0.3",
     "eslint-plugin-flowtype": "4.6.0",
-    "eslint-plugin-import": "2.20.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.18.0",
     "eslint-plugin-react-hooks": "^1.6.1",
@@ -76,7 +71,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "test:lint": "npm run test:lint:css && npm run test:lint:js",
+    "test:lint:css": "stylelint './src/**/*.styled.js' './src/**/*.css' && npx prettier --check './src/**/*.styled.js' './src/**/*.css'",
+    "test:lint:js": "NODE_ENV=test npx eslint './src/**'",
+    "fix:lint": "npm run fix:lint:css && npm run fix:lint:js",
+    "fix:lint:css": "stylelint --fix './src/**/*.styled.js' './src/**/*.css' && npx prettier --write './src/**/*.styled.js' './src/**/*.css'",
+    "fix:lint:js": "NODE_ENV=test npx eslint --fix './src/**'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -165,7 +166,23 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-emotion": "^10.0.33",
-    "babel-plugin-module-resolver": "^4.0.0"
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-universe": "^3.0.0",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-graphql": "^3.1.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-module-resolver": "^0.16.0",
+    "eslint-plugin-no-only-tests": "^2.4.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "2.0.4",
+    "stylelint": "^13.3.1",
+    "typescript": "^3.8.3"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "unit-whitelist": ['fr', 'rem', '%', 'vw', 'vh', 'deg', 'px', 'ms', 's'],
+    "declaration-property-unit-whitelist": {
+      /^(?!border|grid.*$).*/: ['rem', '%', 'vw', 'vh', 'deg', 'ms', 's'],
+      /^grid/: ['fr', 'px', 'rem', 'vw', 'vh', '%'],
+      /^border/: ['px', 'rem', '%'],
+    }
+  }
+}

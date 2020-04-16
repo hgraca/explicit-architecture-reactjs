@@ -1,0 +1,42 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "universe/node",
+    "universe/web",
+    "prettier/react",
+    "eslint:recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "react-hooks",
+    "no-only-tests",
+    "module-resolver",
+    "graphql"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "prettier/prettier": [
+      "error",
+      {}
+    ],
+    "no-only-tests/no-only-tests": "error",
+    "module-resolver/use-alias": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "16.6.3"
+    },
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "globals": {
+    "ga": "readonly"
+  }
+}

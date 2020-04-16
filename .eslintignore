@@ -1,0 +1,3 @@
+# ignore linting commonjs and console logs
+server.js
+*.css
