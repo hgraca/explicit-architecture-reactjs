@@ -157,6 +157,7 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-emotion": "^10.0.33"
+    "babel-plugin-emotion": "^10.0.33",
+    "babel-plugin-module-resolver": "^4.0.0"
   }
 }
