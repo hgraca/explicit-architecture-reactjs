@@ -3,26 +3,26 @@
 [![Author][Author]](https://www.herbertograca.com)
 [![Software License][License]](LICENSE)
 
-This repository is a demo of [Explicit Architecture][1], using ReactJs and a [GraphQL API][18] on top of the 
+This repository is a demo of [Explicit Architecture][1], using ReactJs and a [GraphQL API][18] on top of the
 the [Symfony Demo Application][2].
 
-Since this is a frontend project, the code is structured in a slightly different way than a backend project, 
+Since this is a frontend project, the code is structured in a slightly different way than a backend project,
 nevertheless, the guiding principles are the same.
 
 For a example of the code structure in a backend project, you can check my repository [Explicit Architecture in PHP][18].
 
-There may be code in this project that is not used and therefore it would be removed in a real project, nevertheless 
+There may be code in this project that is not used and therefore it would be removed in a real project, nevertheless
 it was included here as examples.
 
 ### Explicit Architecture
 
 I explained [Explicit Architecture][1] in one of my blog posts, as a result of my understanding of several architectural
- ideas such as (but not limited to) [EBI Architecture][11], [DDD][12], [Ports & Adapters Architecture][13], 
+ ideas such as (but not limited to) [EBI Architecture][11], [DDD][12], [Ports & Adapters Architecture][13],
  [Onion Architecture][14] and [Clean Architecture][15].
- 
-Please, not that the term "component" in the following slides are not the same as a "react component". They refer to 
+
+Please, not that the term "component" in the following slides are not the same as a "react component". They refer to
 a more generic concept of a domain wise module, which in the context of this project is a Page.
- 
+
 [![Explicit Architecture](https://docs.google.com/drawings/d/e/2PACX-1vQ5ps72uaZcEJzwnJbPhzUfEeBbN6CJ04j7hl2i3K2HHatNcsoyG2tgX2vnrN5xxDKLp5Jm5bzzmZdv/pub?w=960&amp;h=657)][2]
 
 #### Package by component
@@ -43,10 +43,16 @@ a more generic concept of a domain wise module, which in the context of this pro
     - **reactjs-extension**  (_code to be used as if it was part of the language itself_)
         - _src_
 - **public** (_the entry point to the application_)
-- **src**
-    - **[Core][10]** (_the application core_)
-        - **[Page][5]** (_the application pages with their components that are not reusable in other pages_)
+- **src** (_there is no Core because it lives on the server side, behind an API_)
+    - **[UI][10]** (_the application UI, heavily inspired in [Atomic Design by Brad Frost][19]_)
+        - **[Pages][5]** (_the application pages with their components that are not reusable in other pages_)
         - **[SharedKernel][6]** (_components that are used in several pages_)
+            - **Atoms** (_the smallest components_)
+            - **Molecules** (_groups of Atoms and/or Molecules bonded together to form a simple, indistinct UI component_)
+            - **Organisms** (_groups of Molecules joined together to form a relatively complex, distinct section of an interface_)
+            - **Layouts** (_basic wireframe for a page, it only specifies the positioning that a list of elements will have_)
+            - **Themes** (_definition of styling characteristics like spacings, colors, borders, etc_)
+            - **Templates** (_a template for a type of Page, puts together a layout, a set of components, and a theme_)
     - **[Infrastructure][9]** (_the port & adapters for the infrastructure tools, designed as wrappers because of language limitations_)
 - **translations**
 - **var** (_volatile artifacts like logs, cache, temporary test databases, generated code, ..._)
@@ -69,6 +75,8 @@ a more generic concept of a domain wise module, which in the context of this pro
 [17]: https://docs.google.com/drawings/d/1QurViCcaZ4Eh1CgBvel9aK5RLBkw2TaOAnO-Lhu4pfw/edit?usp=sharing
 
 [18]: https://github.com/hgraca/explicit-architecture-php
+
+[19]: https://atomicdesign.bradfrost.com/
 
 [Author]: http://img.shields.io/badge/author-@hgraca-blue.svg?style=flat-square
 [License]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
